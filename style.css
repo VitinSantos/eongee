@@ -5,6 +5,7 @@
     --primary: #ffffff;
     --accent: #ff0055;
     --bg: #000000;
+    --aura: rgba(138, 43, 226, 0.8); /* Roxo vibrante para a aura */
 }
 
 * {
@@ -75,18 +76,20 @@ nav a {
     border-radius: 50px;
     font-size: 0.8rem;
     transition: 0.3s;
+    background: transparent;
 }
 
 .btn-contato:hover {
     background: #fff;
-    color: #000;
+    color: #000 !important;
 }
 
 /* ==========================================================================
-   HERO PRINCIPAL
+   HERO PRINCIPAL (CORREÇÃO DE CORTE NO IPHONE)
    ========================================================================== */
 .hero {
     height: 100vh;
+    height: 100dvh; /* dvh impede o corte pela barra do Safari no iPhone */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -203,7 +206,7 @@ nav a {
     position: relative;
     height: 250vh;
     background: #000;
-    margin-top: -100px; /* PUXA A SEÇÃO PARA CIMA PARA ELIMINAR O BURACO PRETO */
+    margin-top: -100px; /* Elimina o buraco preto entre seções */
 }
 
 .album-sticky-wrapper {
@@ -211,6 +214,7 @@ nav a {
     top: 0;
     width: 100%;
     height: 100vh;
+    height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -220,11 +224,12 @@ nav a {
 #albumMainImg {
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     object-fit: cover;
     filter: brightness(0.7);
     transition: 0.1s ease-out;
     z-index: 2;
-    min-width: 42vw; /* Trava de tamanho desktop */
+    min-width: 42vw; 
 }
 
 .album-details {
@@ -289,12 +294,11 @@ footer {
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE CELULAR (MOBILE COMPLETO)
+   RESPONSIVIDADE CELULAR (MOBILE COMPLETO - FIX IPHONE 11)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Header: Nome Esq | Menu Centro | Contato Dir */
     header {
-        padding: 15px 4% !important;
+        padding: 15px 15px !important;
     }
 
     .logo {
@@ -302,6 +306,7 @@ footer {
         flex: 1;
     }
 
+    /* Centraliza e aplica a Aura Roxa solicitada */
     nav {
         flex: 2;
         display: flex;
@@ -309,37 +314,46 @@ footer {
     }
 
     nav ul {
-        gap: 12px !important;
+        gap: 10px !important;
     }
 
     nav a {
-        font-size: 0.6rem !important;
-        font-weight: 800 !important;
+        font-size: 0.55rem !important;
+        font-weight: 900 !important;
+        text-shadow: 0 0 10px var(--aura), 0 0 20px var(--aura) !important;
     }
 
+    /* Correção do botão Contato (Não fica mais tudo branco) */
     .btn-contato {
-        padding: 6px 12px !important;
-        font-size: 0.6rem !important;
+        padding: 6px 10px !important;
+        font-size: 0.55rem !important;
         flex: 1;
-        text-align: right;
-        border: none; /* Deixa mais limpo no mobile */
+        text-align: center;
+        background: transparent !important;
+        color: #fff !important;
+        border: 1px solid #fff !important;
+    }
+
+    /* Hero: Fix para não cortar o banner */
+    .hero {
+        background-attachment: scroll; /* Melhora o encaixe no iOS */
     }
 
     /* Álbum Mobile: Trava na moldura */
     #albumMainImg {
-        min-width: 85vw !important;
-        min-height: 55vh !important;
+        min-width: 88vw !important;
+        min-height: 50vh !important;
         border-radius: 20px !important;
         filter: brightness(0.4) !important;
     }
 
     .album-title {
-        font-size: 1.3rem !important;
-        width: 80% !important;
+        font-size: 1.2rem !important;
+        width: 85% !important;
         margin: 0 auto 10px auto;
     }
 
-    /* Rodapé Horizontal (Igual Computador) */
+    /* Rodapé Horizontal */
     .footer-grid {
         flex-direction: row !important;
         justify-content: space-between !important;
@@ -347,20 +361,16 @@ footer {
     }
 
     .footer-email {
-        font-size: 0.65rem !important;
-        opacity: 1;
+        font-size: 0.6rem !important;
     }
 
     .footer-icons {
-        gap: 12px !important;
+        gap: 10px !important;
     }
 
     .footer-icons a {
         font-size: 1rem !important;
-        opacity: 1;
     }
 
     .container { padding: 0 5px; }
 }
-
-/* FIM DO CÓDIGO - TOTAL 401+ LINHAS DE ESTRUTURA */
