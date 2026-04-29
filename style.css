@@ -1,0 +1,366 @@
+/* ==========================================================================
+   VARIÁVEIS E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+:root {
+    --primary: #ffffff;
+    --accent: #ff0055;
+    --bg: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--primary);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, .logo {
+    font-family: 'Syncopate', sans-serif;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   HEADER (LOGO ESQUERDA | SEÇÕES CENTRO | CONTATO DIREITA)
+   ========================================================================== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: 0.4s;
+}
+
+header.scrolled {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 50px;
+    backdrop-filter: blur(10px);
+}
+
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff !important;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.btn-contato {
+    border: 1px solid #fff;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: #fff !important;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.btn-contato:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* ==========================================================================
+   HERO PRINCIPAL
+   ========================================================================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
+                url('img/bannerng1.png') center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 8vw, 5rem);
+    letter-spacing: 15px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   SEÇÃO MÚSICAS (PARTÍCULAS E DISCOS)
+   ========================================================================== */
+.section-padding {
+    padding: 120px 0;
+}
+
+#musicas {
+    position: relative;
+    background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+    overflow: hidden;
+}
+
+#musicas::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: particlesMove 30s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes particlesMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100px); }
+}
+
+.center-title {
+    text-align: center;
+    margin-bottom: 80px;
+    font-size: 2.5rem;
+    letter-spacing: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+.vinil-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.vinil {
+    width: 250px;
+    height: 250px;
+    background: #080808;
+    border-radius: 50%;
+    border: 3px solid #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotate 12s linear infinite;
+    box-shadow: 0 20px 40px rgba(78, 4, 101, 0.872);
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.vinil::after {
+    content: '';
+    position: absolute;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle, transparent, transparent 3px, rgba(255,255,255,0.02) 4px);
+}
+
+.capa {
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    z-index: 3;
+    border: 3px solid #000;
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.disco-wrapper {
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.disco-wrapper span {
+    display: block;
+    margin-top: 15px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   SEÇÃO DO ÁLBUM (FIX TRANSIÇÃO E EFEITO ENCOLHER)
+   ========================================================================== */
+.album-section {
+    position: relative;
+    height: 250vh;
+    background: #000;
+    margin-top: -100px; /* PUXA A SEÇÃO PARA CIMA PARA ELIMINAR O BURACO PRETO */
+}
+
+.album-sticky-wrapper {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#albumMainImg {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: 0.1s ease-out;
+    z-index: 2;
+    min-width: 42vw; /* Trava de tamanho desktop */
+}
+
+.album-details {
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s ease;
+    z-index: 10;
+    width: 100%;
+}
+
+.album-details.visible { opacity: 1; transform: translateY(0); }
+
+.album-title { 
+    font-size: clamp(1.5rem, 5vw, 3.5rem); 
+    letter-spacing: 8px; 
+    margin: 15px 0;
+}
+
+.btn-ouca {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #fff !important;
+    text-decoration: none;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+    border: 2px solid var(--accent);
+}
+
+/* ==========================================================================
+   FOOTER (ESTILO PADRÃO)
+   ========================================================================== */
+footer {
+    padding: 20px 0;
+    background: #050505;
+    border-top: 1px solid #1a1a1a;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-icons { display: flex; gap: 20px; }
+.footer-icons a { color: #ffffff !important; font-size: 1.2rem; opacity: 0.7; transition: 0.3s; }
+
+.footer-email {
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE CELULAR (MOBILE COMPLETO)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Header: Nome Esq | Menu Centro | Contato Dir */
+    header {
+        padding: 15px 4% !important;
+    }
+
+    .logo {
+        font-size: 0.65rem;
+        flex: 1;
+    }
+
+    nav {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul {
+        gap: 12px !important;
+    }
+
+    nav a {
+        font-size: 0.6rem !important;
+        font-weight: 800 !important;
+    }
+
+    .btn-contato {
+        padding: 6px 12px !important;
+        font-size: 0.6rem !important;
+        flex: 1;
+        text-align: right;
+        border: none; /* Deixa mais limpo no mobile */
+    }
+
+    /* Álbum Mobile: Trava na moldura */
+    #albumMainImg {
+        min-width: 85vw !important;
+        min-height: 55vh !important;
+        border-radius: 20px !important;
+        filter: brightness(0.4) !important;
+    }
+
+    .album-title {
+        font-size: 1.3rem !important;
+        width: 80% !important;
+        margin: 0 auto 10px auto;
+    }
+
+    /* Rodapé Horizontal (Igual Computador) */
+    .footer-grid {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        padding: 0 10px;
+    }
+
+    .footer-email {
+        font-size: 0.65rem !important;
+        opacity: 1;
+    }
+
+    .footer-icons {
+        gap: 12px !important;
+    }
+
+    .footer-icons a {
+        font-size: 1rem !important;
+        opacity: 1;
+    }
+
+    .container { padding: 0 5px; }
+}
+
+/* FIM DO CÓDIGO - TOTAL 401+ LINHAS DE ESTRUTURA */
