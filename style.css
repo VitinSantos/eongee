@@ -68,12 +68,15 @@ nav a {
     transition: 0.3s;
 }
 
-/* FIX DO BOTÃO DE CONTATO: Mantém a cor mesmo após o clique */
-.btn-contato, .btn-contato:visited {
+/* FIX DEFINITIVO DO BOTÃO DE CONTATO: Força a cor em todos os estados */
+.btn-contato, 
+.btn-contato:link, 
+.btn-contato:visited, 
+.btn-contato:active {
     border: 1px solid #fff !important;
     padding: 10px 25px;
     text-decoration: none !important;
-    color: #fff !important;
+    color: #fff !important; /* Força o texto branco sempre */
     background-color: transparent !important;
     border-radius: 50px;
     font-size: 0.8rem;
@@ -91,7 +94,7 @@ nav a {
    ========================================================================== */
 .hero {
     height: 100vh;
-    height: 100dvh; /* dvh impede o corte no Safari */
+    height: 100dvh; /* dvh impede o corte no Safari do iPhone */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -300,11 +303,11 @@ footer {
    ========================================================================== */
 @media (max-width: 768px) {
     header {
-        padding: 15px 15px !important;
+        padding: 10px 10px !important; /* Compactado para o iPhone 11 */
     }
 
     .logo {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
         flex: 1;
     }
 
@@ -325,14 +328,17 @@ footer {
         text-shadow: 0 0 10px var(--aura), 0 0 20px var(--aura) !important;
     }
 
-    /* Botão Contato Mobile - Fix de Cor após Clique */
-    .btn-contato, .btn-contato:visited {
+    /* Botão Contato Mobile - Força a visibilidade mesmo após clique */
+    .btn-contato, 
+    .btn-contato:link, 
+    .btn-contato:visited, 
+    .btn-contato:active {
         padding: 6px 10px !important;
         font-size: 0.55rem !important;
         flex: 1;
         text-align: center;
         background-color: transparent !important;
-        color: #fff !important;
+        color: #fff !important; /* Texto branco forçado */
         border: 1px solid #fff !important;
         opacity: 1 !important;
     }
@@ -360,8 +366,8 @@ footer {
         padding: 0 10px;
     }
 
-    .footer-email { font-size: 0.6rem !important; }
+    .footer-email { font-size: 0.55rem !important; }
     .footer-icons { gap: 10px !important; }
 }
 
-/* FIM DO CÓDIGO - ESTRUTURA INTEGRAL MANTIDA */
+/* FIM DO CÓDIGO */
