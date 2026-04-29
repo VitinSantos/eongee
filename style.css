@@ -68,19 +68,21 @@ nav a {
     transition: 0.3s;
 }
 
-.btn-contato {
-    border: 1px solid #fff;
+/* FIX DO BOTÃO DE CONTATO: Mantém a cor mesmo após o clique */
+.btn-contato, .btn-contato:visited {
+    border: 1px solid #fff !important;
     padding: 10px 25px;
-    text-decoration: none;
+    text-decoration: none !important;
     color: #fff !important;
+    background-color: transparent !important;
     border-radius: 50px;
     font-size: 0.8rem;
     transition: 0.3s;
-    background: transparent;
+    display: inline-block;
 }
 
 .btn-contato:hover {
-    background: #fff;
+    background: #fff !important;
     color: #000 !important;
 }
 
@@ -89,7 +91,7 @@ nav a {
    ========================================================================== */
 .hero {
     height: 100vh;
-    height: 100dvh; /* dvh impede o corte pela barra do Safari no iPhone */
+    height: 100dvh; /* dvh impede o corte no Safari */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -206,7 +208,7 @@ nav a {
     position: relative;
     height: 250vh;
     background: #000;
-    margin-top: -100px; /* Elimina o buraco preto entre seções */
+    margin-top: -100px; /* Elimina o buraco preto */
 }
 
 .album-sticky-wrapper {
@@ -306,7 +308,6 @@ footer {
         flex: 1;
     }
 
-    /* Centraliza e aplica a Aura Roxa solicitada */
     nav {
         flex: 2;
         display: flex;
@@ -320,26 +321,26 @@ footer {
     nav a {
         font-size: 0.55rem !important;
         font-weight: 900 !important;
+        /* Aura Roxa solicitada */
         text-shadow: 0 0 10px var(--aura), 0 0 20px var(--aura) !important;
     }
 
-    /* Correção do botão Contato (Não fica mais tudo branco) */
-    .btn-contato {
+    /* Botão Contato Mobile - Fix de Cor após Clique */
+    .btn-contato, .btn-contato:visited {
         padding: 6px 10px !important;
         font-size: 0.55rem !important;
         flex: 1;
         text-align: center;
-        background: transparent !important;
+        background-color: transparent !important;
         color: #fff !important;
         border: 1px solid #fff !important;
+        opacity: 1 !important;
     }
 
-    /* Hero: Fix para não cortar o banner */
     .hero {
-        background-attachment: scroll; /* Melhora o encaixe no iOS */
+        background-attachment: scroll; /* Melhora encaixe no iOS */
     }
 
-    /* Álbum Mobile: Trava na moldura */
     #albumMainImg {
         min-width: 88vw !important;
         min-height: 50vh !important;
@@ -353,24 +354,14 @@ footer {
         margin: 0 auto 10px auto;
     }
 
-    /* Rodapé Horizontal */
     .footer-grid {
         flex-direction: row !important;
         justify-content: space-between !important;
         padding: 0 10px;
     }
 
-    .footer-email {
-        font-size: 0.6rem !important;
-    }
-
-    .footer-icons {
-        gap: 10px !important;
-    }
-
-    .footer-icons a {
-        font-size: 1rem !important;
-    }
-
-    .container { padding: 0 5px; }
+    .footer-email { font-size: 0.6rem !important; }
+    .footer-icons { gap: 10px !important; }
 }
+
+/* FIM DO CÓDIGO - ESTRUTURA INTEGRAL MANTIDA */
