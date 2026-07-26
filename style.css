@@ -272,17 +272,11 @@ nav a {
    FOOTER (COMPUTADOR: COPYRIGHT À ESQUERDA | EMAIL NO CENTRO | REDES À DIREITA)
    ========================================================================== */
 footer {
-    padding: 20px 5%;
+    padding: 25px 5%;
     background: #050505;
     border-top: 1px solid #1a1a1a;
     width: 100%;
     box-sizing: border-box;
-}
-
-.container { 
-    max-width: 100%; 
-    margin: 0 auto; 
-    padding: 0; 
 }
 
 .footer-grid {
@@ -292,7 +286,7 @@ footer {
     width: 100%;
 }
 
-/* 3 colunas flex de tamanho igual para garantir alinhamento perfeito */
+/* 3 colunas iguais para alinhar perfeitamente */
 .footer-col {
     flex: 1;
     display: flex;
@@ -300,14 +294,13 @@ footer {
 }
 
 .footer-copy {
-    justify-content: flex-start; /* Copyright encostado na ponta esquerda */
-    font-size: 0.8rem;
+    justify-content: flex-start; /* Extrema Esquerda */
+    font-size: 0.85rem;
     color: #ffffff;
-    opacity: 0.8;
 }
 
 .footer-email-col {
-    justify-content: center; /* Email no meio exato da tela */
+    justify-content: center; /* Centro Exato */
 }
 
 .footer-email {
@@ -317,16 +310,15 @@ footer {
     display: flex;
     align-items: center;
     gap: 8px;
-    opacity: 0.8;
     transition: 0.3s;
 }
 
 .footer-email:hover {
-    opacity: 1;
+    color: var(--aura) !important;
 }
 
 .footer-icons-col {
-    justify-content: flex-end; /* Ícones encostados na ponta direita */
+    justify-content: flex-end; /* Extrema Direita */
 }
 
 .footer-icons { 
@@ -337,22 +329,20 @@ footer {
 .footer-icons a { 
     color: #ffffff !important; 
     font-size: 1.1rem; 
-    opacity: 0.8; 
     transition: 0.3s; 
     text-decoration: none;
 }
 
 .footer-icons a:hover {
-    opacity: 1;
     color: var(--aura) !important;
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE CELULAR (MOBILE COMPLETO - FIX IPHONE 11)
+   RESPONSIVIDADE CELULAR (MOBILE COMPLETO)
    ========================================================================== */
 @media (max-width: 768px) {
     header {
-        padding: 10px 10px !important; /* Compactado para o iPhone 11 */
+        padding: 10px 10px !important;
     }
 
     .logo {
@@ -373,11 +363,9 @@ footer {
     nav a {
         font-size: 0.55rem !important;
         font-weight: 900 !important;
-        /* Aura Roxa solicitada */
         text-shadow: 0 0 10px var(--aura), 0 0 20px var(--aura) !important;
     }
 
-    /* Botão Contato Mobile - Força a visibilidade mesmo após clique */
     .btn-contato, 
     .btn-contato:link, 
     .btn-contato:visited, 
@@ -387,13 +375,13 @@ footer {
         flex: 1;
         text-align: center;
         background-color: transparent !important;
-        color: #fff !important; /* Texto branco forçado */
+        color: #fff !important;
         border: 1px solid #fff !important;
         opacity: 1 !important;
     }
 
     .hero {
-        background-attachment: scroll; /* Melhora encaixe no iOS */
+        background-attachment: scroll;
     }
 
     #albumMainImg {
@@ -409,18 +397,18 @@ footer {
         margin: 0 auto 10px auto;
     }
 
+    /* Layout no celular lado a lado */
     .footer-grid {
         flex-direction: row !important;
         justify-content: space-between !important;
-        padding: 0 10px;
     }
 
     .footer-col {
-        flex: initial;
+        flex: auto;
     }
 
+    .footer-copy { font-size: 0.55rem !important; }
     .footer-email { font-size: 0.55rem !important; }
     .footer-icons { gap: 10px !important; }
+    .footer-icons a { font-size: 0.9rem !important; }
 }
-
-/* FIM DO CÓDIGO */
