@@ -269,33 +269,82 @@ nav a {
 }
 
 /* ==========================================================================
-   FOOTER (ESTILO PADRÃO)
+   FOOTER (COMPUTADOR: COPYRIGHT À ESQUERDA | EMAIL NO CENTRO | REDES À DIREITA)
    ========================================================================== */
 footer {
-    padding: 20px 0;
+    padding: 20px 5%;
     background: #050505;
     border-top: 1px solid #1a1a1a;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.container { 
+    max-width: 100%; 
+    margin: 0 auto; 
+    padding: 0; 
+}
 
 .footer-grid {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
-.footer-icons { display: flex; gap: 20px; }
-.footer-icons a { color: #ffffff !important; font-size: 1.2rem; opacity: 0.7; transition: 0.3s; }
+/* 3 colunas flex de tamanho igual para garantir alinhamento perfeito */
+.footer-col {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.footer-copy {
+    justify-content: flex-start; /* Copyright encostado na ponta esquerda */
+    font-size: 0.8rem;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+.footer-email-col {
+    justify-content: center; /* Email no meio exato da tela */
+}
 
 .footer-email {
     color: #ffffff !important;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     display: flex;
     align-items: center;
-    gap: 10px;
-    opacity: 0.7;
+    gap: 8px;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.footer-email:hover {
+    opacity: 1;
+}
+
+.footer-icons-col {
+    justify-content: flex-end; /* Ícones encostados na ponta direita */
+}
+
+.footer-icons { 
+    display: flex; 
+    gap: 20px; 
+}
+
+.footer-icons a { 
+    color: #ffffff !important; 
+    font-size: 1.1rem; 
+    opacity: 0.8; 
+    transition: 0.3s; 
+    text-decoration: none;
+}
+
+.footer-icons a:hover {
+    opacity: 1;
+    color: var(--aura) !important;
 }
 
 /* ==========================================================================
@@ -364,6 +413,10 @@ footer {
         flex-direction: row !important;
         justify-content: space-between !important;
         padding: 0 10px;
+    }
+
+    .footer-col {
+        flex: initial;
     }
 
     .footer-email { font-size: 0.55rem !important; }
