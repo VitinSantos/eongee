@@ -337,6 +337,46 @@ footer {
     color: var(--aura) !important;
 }
 
+.social-disabled {
+    color: #666;
+    font-size: 1.1rem;
+    cursor: not-allowed;
+}
+
+.coming-soon-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    background: radial-gradient(circle at center, #160016 0%, #000 65%);
+    text-align: center;
+}
+
+.coming-soon-content {
+    max-width: 680px;
+}
+
+.coming-soon-label {
+    color: var(--accent);
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+.coming-soon-content h1 {
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.coming-soon-content > p:not(.coming-soon-label) {
+    color: #c9c9c9;
+    margin-bottom: 36px;
+}
+
 /* ==========================================================================
    RESPONSIVIDADE CELULAR (MOBILE COMPLETO)
    ========================================================================== */
