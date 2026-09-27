@@ -147,10 +147,12 @@ nav a {
 }
 
 .vinil-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
+    width: min(100% - 48px, 1400px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-items: center;
+    gap: 40px 32px;
     position: relative;
     z-index: 2;
 }
@@ -191,17 +193,29 @@ nav a {
 @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
 .disco-wrapper {
+    width: 100%;
+    max-width: 390px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     text-decoration: none;
     color: #fff;
     transition: 0.3s;
+    line-height: 1.45;
 }
 
 .disco-wrapper span {
     display: block;
+    width: 100%;
     margin-top: 15px;
     font-weight: 300;
     text-transform: uppercase;
+}
+
+.disco-wrapper br + * {
+    overflow-wrap: anywhere;
 }
 
 /* ==========================================================================
@@ -381,6 +395,16 @@ footer {
    RESPONSIVIDADE CELULAR (MOBILE COMPLETO)
    ========================================================================== */
 @media (max-width: 768px) {
+    .vinil-container {
+        width: min(100% - 32px, 390px);
+        grid-template-columns: minmax(0, 1fr);
+        gap: 48px;
+    }
+
+    .disco-wrapper {
+        max-width: 340px;
+    }
+
     header {
         padding: 10px 10px !important;
     }
